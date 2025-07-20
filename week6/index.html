@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact_Phone_Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="fetchContacts()" >
+    <br><h1 style="border: 1.5em; border-radius: 0.5em; text-align: center; color: antiquewhite; background-color: cadetblue;">Phone Contact Book </h1></br>
+    <div id="table">Contacts loading...</div>
+    <button id="refresh" type="button">Refresh</button>
+    <button id="addContact" type="button">Add Contact</button>
+    <script src="config.js"></script>
+    <script>
+        document.getElementById("refresh").addEventListener('click', fetchContacts)
+        document.getElementById("addContact").addEventListener('click', addContact)
+
+        function fetchContacts(){
+            fetch(rootPath + "controller/get-contacts/").then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    displayOutput(data);
+                    //console.log(data);
+                })
+        }
+        function displayOutput(data){
+            output = "<table style='margin-left:40%;border-radius: 5px;color:white; border:1.5em;background-color: #a8a7a7;'>";
+            for(a in data){
+                output += `
+                
+                <tr onclick="editContact(${data[a].id})">
+                    <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40" /></td>
+                     <td><h5>${data[a].firstname}</h5></td>
+                     <td><h5>${data[a].lastname}</h5></td>
+                     <td><h5>${data[a].email}</h5></td>
+                     
+                </tr>   `
+            }
+            output += "</table>";
+            document.getElementById("table").innerHTML = output;
+        }
+        function addContact(){
+            window.open("add-contact.html", "_self");
+        }
+        function editContact(id){
+            window.open("edit-contact.html?id=" + id, "_self");
+        }
+    </script>
+</body>
+</html>

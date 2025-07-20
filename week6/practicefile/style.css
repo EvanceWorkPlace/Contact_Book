@@ -1,0 +1,76 @@
+/* Reset some default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.container {
+  border: 1.5em;
+  border-radius: 50px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  color: #333;
+}
+.form {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+input[type="birthday"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #a8a7a7;
+  border-radius: 5px;
+}
+
+input[readonly] {
+  background-color: #f0f0f0;
+  color: #555;
+}
+button { 
+  margin-left: .5%;
+  margin:10x 5px 0 5px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #0056b3;
+}
+#submitForm {
+  background-color: #28a745;
+}
+#submitForm:hover {
+  background-color: #218838;
+}
+#editContact {
+  background-color: #ffc107;
+  color: #333;
+}
+
+#editContact:hover {
+  background-color: #e0a800;
+}
+
+#deleteContact {
+  background-color: #dc3545;
+}
+
+#deleteContact:hover {
+  background-color: #c82333;
+}
